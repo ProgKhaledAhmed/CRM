@@ -14,23 +14,21 @@
 <title>Welcome</title>
 </head>
 <body>
-	<%@include file="header.html"%>
-	<div class="container">
-		<div class="col-md-offset-1 col-md-10">
-			<h2>CRM - Customer Relationship Manager</h2>
-			<hr />
-			<table align="center">
-				<tr>
-					<td><input type="button" value="Login"
-						onclick="window.location.href='persons'; return false;"
-						class="btn btn-primary" /></td>
-					<td></td>
-					<td><input type="button" value="Register"
-						onclick="window.location.href='persons'; return false;"
-						class="btn btn-primary" /></td>
-				</tr>
-			</table>
-		</div>
+	<%@include file="head.html"%>
+	<div class="col-md-offset-1 col-md-10">
+		<h2>CRM - Customer Relationship Manager</h2>
+		<hr />
+		<table align="center">
+			<tr>
+				<td><input type="button" value="Login"
+					onclick="window.location.href='persons'; return false;"
+					class="btn btn-primary" /></td>
+				<td></td>
+				<td><input type="button" value="Register"
+					onclick="window.location.href='persons'; return false;"
+					class="btn btn-primary" /></td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

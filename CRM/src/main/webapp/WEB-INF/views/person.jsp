@@ -16,7 +16,7 @@
 </head>
 <body>
 
-	<%@include file="header.html"%>
+	<%@include file="head.html"%>
 	
 	<h1>Add a Person</h1>
 
