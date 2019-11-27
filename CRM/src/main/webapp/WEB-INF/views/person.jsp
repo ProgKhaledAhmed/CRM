@@ -43,12 +43,12 @@
 						<div class="form-row">
 							<c:if test="${!empty person.name}">
 								<div class="orm-group col-md-4">
-									<input type="submit" value="<spring:message text="Edit Person"/>" class="btn btn-primary" />		
+									<input type="submit" value="<spring:message text="Edit Person"/>" class="btn btn-success" />		
 								</div>
 							</c:if>
 							<c:if test="${empty person.name}">
 								<div class="orm-group col-md-4">
-									<input type="submit" value="<spring:message text="Add Person"/>" class="btn btn-primary" />
+									<input type="submit" value="<spring:message text="Add Person"/>" class="btn btn-success" />
 								</div>
 							</c:if>
 							<div class="orm-group col-md-4"></div>
