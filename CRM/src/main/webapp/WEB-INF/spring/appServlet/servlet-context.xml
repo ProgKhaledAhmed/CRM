@@ -41,6 +41,7 @@
 		<beans:property name="annotatedClasses">
 			<beans:list>
 				<beans:value>com.khaled.crm.model.Person</beans:value>
+				<beans:value>com.khaled.crm.model.User</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -58,6 +59,14 @@
 	<beans:bean id="personService" class="com.khaled.crm.service.PersonServiceImpl">
 		<beans:property name="personDAO" ref="personDAO"></beans:property>
 	</beans:bean>
+	
+	<beans:bean id="userDAO" class="com.khaled.crm.dao.UserDAOImpl">
+		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+	</beans:bean>
+	<beans:bean id="userService" class="com.khaled.crm.service.UserServiceImpl">
+		<beans:property name="userDAO" ref="userDAO"></beans:property>
+	</beans:bean>
+	
 	<context:component-scan base-package="com.khaled.crm" />
 
 	<tx:annotation-driven transaction-manager="transactionManager" />

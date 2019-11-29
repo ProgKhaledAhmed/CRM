@@ -36,4 +36,16 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register(Locale locale, Model model) {
+		logger.info("Regiser page...");
+		return "register";
+	}
+	
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public String users(Locale locale, Model model) {
+		logger.info("Users page...");
+		return "users";
+	}
+	
 }

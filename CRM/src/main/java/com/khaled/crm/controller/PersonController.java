@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.khaled.crm.model.Person;
 import com.khaled.crm.service.PersonService;
 
-@Controller
+@Controller("/persons")
 public class PersonController {
 
 	private PersonService personService;
