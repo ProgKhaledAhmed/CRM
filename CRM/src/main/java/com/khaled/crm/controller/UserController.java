@@ -29,7 +29,7 @@ public class UserController {
 		return "users";
 	}
 	
-	@RequestMapping(value = "/findUsers", method = RequestMethod.GET)
+	@RequestMapping(value = "/findUsers", method = RequestMethod.POST)
 	public String findUsers(@ModelAttribute("user") User user, Model model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("listUsers",

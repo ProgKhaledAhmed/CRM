@@ -44,6 +44,13 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public List<User> searchUsers(String firstname, String lastname, String username, String email, String gender,
 			int age, String telephone, String type) {
+		if(gender.equalsIgnoreCase("Gender...")) {
+			gender = null;
+		}
+		
+		if(type.equalsIgnoreCase("Type...") || type.equalsIgnoreCase("...")) {
+			type = null;
+		}
 		return this.userDAO.searchUsers(firstname, lastname, username, email, gender, age, telephone, type);
 	}
 
