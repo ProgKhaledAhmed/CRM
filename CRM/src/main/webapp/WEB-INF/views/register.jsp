@@ -22,29 +22,29 @@
 			<div class="row">
 				<div class="form-group col-md-12" required autofocus>
 					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control" id="exampleInputEmail1"
-						aria-describedby="emailHelp" placeholder="Enter email">
+					<input type="email" class="form-control" id="exampleInputEmail1" required
+						aria-describedby="emailHelp" placeholder="example@company.com">
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12" required autofocus>
-					<label for="exampleInputEmail1">Email address</label>
-					<input type="email" class="form-control" id="exampleInputEmail1"
-						aria-describedby="emailHelp" placeholder="Enter email">
+					<label for="exampleInputEmail1">Username</label>
+					<input type="text" class="form-control" id="exampleInputEmail1" required
+						aria-describedby="emailHelp" placeholder="Enter Username">
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12">
 					<label for="exampleInputPassword1">Password</label> <input
-						type="password" class="form-control" id="exampleInputPassword1"
-						placeholder="Password">
+						type="password" class="form-control" id="exampleInputPassword1" required
+						placeholder="Enter Password">
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group col-md-12">
-					<label for="exampleInputPassword1">Password</label> <input
-						type="password" class="form-control" id="exampleInputPassword1"
-						placeholder="Password">
+					<label for="exampleInputPassword1">Confirm Password</label> <input
+						type="password" class="form-control" id="exampleInputPassword1" required
+						placeholder="Confirm Password">
 				</div>
 			</div>
 			<div class="row">
