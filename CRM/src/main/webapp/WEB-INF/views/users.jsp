@@ -15,25 +15,111 @@
 		<%@include file="head.html"%>
 	<div class="container" style="margin-top: 70px;">
 		<!-- Modal -->
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">New User</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		        ...
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save changes</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" id="exampleModalCenterTitle">New User</h4>
+	        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button> -->
+	      </div>
+	      <div class="modal-body pre-scrollable">
+	       <form:form action="${searchAction}" commandName="user" class="md-form overflow-auto">
+	       	<div class="form-group row">
+	       		<div class="col-sm-6">
+		       <div class="file-field">
+				   <div class="mb-4">
+				     <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" 
+				     	  class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" width="150" height="150">
+				   </div>
+				   <div class="d-flex justify-content-center">
+				     <div class="btn btn-mdb-color btn-rounded float-left">
+				       <span>Add photo</span>
+				       <input type="file">
+				     </div>
+				   </div>
+				 </div>
+				 </div>
+				 <div class="col-sm-6">
+				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/><br>
+				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
+				     </div>
+				</div>
+				  	<div class="form-group row">
+					    <div class="col-sm-6">
+					      <form:input type="text" path="firstname" cssClass="form-control" id="staticEmail" placeholder="Firstname"/>
+					    </div>
+				     <div class="col-sm-6">
+				     	<form:input type="text" path="lastname" cssClass="form-control" id="staticEmail" placeholder="Lastname"/>
+				     </div>
+				     </div>
+				     <div class="form-group row">
+				     <div class="col-sm-6">
+				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
+				     </div>
+				     <div class="col-sm-6">
+				     	<form:input type="email" path="email" cssClass="form-control" id="staticEmail" placeholder="E-mail"/>
+				     </div>
+				  </div>
+				  <div class="form-group row">
+					    <div class="col-sm-6">
+					      <form:input type="password" path="password" cssClass="form-control" id="staticPassword" placeholder="Enter Password"/>
+					    </div>
+				     <div class="col-sm-6">
+				     	<form:input type="password" path="password" cssClass="form-control" id="staticPassword" placeholder="Confirm Pasword"/>
+				     </div>
+				     </div>
+				     <div class="form-group row">
+				     <div class="col-sm-6">
+				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
+				     </div>
+				     <div class="col-sm-6">
+				     	<form:input type="email" path="email" cssClass="form-control" id="staticEmail" placeholder="E-mail"/>
+				     </div>
+				  </div>
+				  <div class="form-group row">
+				    <div class="col-sm-6">
+				      <form:input path="age" type="number" cssClass="form-control" id="staticEmail" placeholder="Age"/>
+				    </div>
+				    <div class="col-sm-6">
+					    <form:select path="gender" id="inputState" cssClass="form-control">
+					        <option selected>Gender...</option>
+					        <option>Male</option>
+					        <option>Female</option>
+						</form:select>
+				     </div>
+				     </div>
+				     <div class="form-group row">
+				     <div class="col-sm-6">
+				     	<form:input type="text" path="telephone" cssClass="form-control" id="staticEmail" placeholder="Telephone"/>
+				     </div>
+				     <div class="col-sm-6">
+				     	<form:select path="type" id="inputState" cssClass="form-control">
+					        <option selected>Type...</option>
+					        <option>User</option>
+					        <option>DBA</option>
+					        <option>Admin</option>
+					        <option>Manager</option>
+					        <option>Data Entry</option>
+					        <option>...</option>
+					    </form:select>
+				     </div>
+				  </div>
+				  <div class="form-group row">
+				     <div class="col-sm-6">
+				     	<form:input type="date" path="birthdate" cssClass="form-control" id="staticBirthdate" placeholder="Birthdate"/>
+				     </div>
+				  </div>
+				</form:form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+	        <button type="button" class="btn btn-primary">Save</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 		<div class="panel panel-default">
 			<!-- Default panel contents -->
 			<div class="panel-heading clearfix">
@@ -43,12 +129,12 @@
 <!-- 					<a href="#" class="btn btn-default btn-sm btn-success">Save</a> -->
 					<!-- <a href="#" class="btn btn-default btn-sm">## Delete</a> -->
 					<a href="#" class="btn btn-default btn-sm btn-danger glyphicon glyphicon-search"> Cancel</a> --%>
-					<button type="submit" class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-target="#exampleModal"> New</button>
+					<button type="submit" class="btn btn-success glyphicon glyphicon-plus" data-toggle="modal" data-target="#exampleModalCenter"> New</button>
 				</div>
 			</div>
 			<div class="panel-body">
-			<c:url var="addAction" value="/findUsers"></c:url>
-			<form:form action="${addAction}" commandName="user">
+			<c:url var="searchAction" value="/findUsers"></c:url>
+			<form:form action="${searchAction}" commandName="user">
 					<h4>Search users</h4>
 				  	<div class="form-group row">
 					    <div class="col-sm-3">
