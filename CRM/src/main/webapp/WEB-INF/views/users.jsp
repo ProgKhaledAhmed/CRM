@@ -27,7 +27,7 @@
 	      <div class="modal-body pre-scrollable">
 	       <form:form action="${searchAction}" commandName="user" class="md-form overflow-auto">
 	       	<div class="form-group row">
-	       		<div class="col-sm-6">
+	       		<div class="col-sm-4">
 		       <div class="file-field">
 				   <div class="mb-4">
 				     <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" 
@@ -41,7 +41,7 @@
 				   </div>
 				 </div>
 				 </div>
-				 <div class="col-sm-6">
+				 <div class="col-sm-8">
 				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/><br>
 				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
 				     </div>
