@@ -24,8 +24,10 @@
 	          <span aria-hidden="true">&times;</span>
 	        </button> -->
 	      </div>
-	      <div class="modal-body pre-scrollable">
-	       <form:form action="${searchAction}" commandName="user" class="md-form overflow-auto">
+	      <div class="modal-body">
+	      <!--  class="modal-body pre-scrollable" -->
+	      <c:url var="addAction" value="/users/add"></c:url>
+	       <form:form action="${addAction}" commandName="user" class="md-form overflow-auto">
 	       	<div class="form-group row">
 	       		<div class="col-sm-4">
 		       <div class="file-field">
@@ -33,58 +35,51 @@
 				     <img src="https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg" 
 				     	  class="rounded-circle z-depth-1-half avatar-pic" alt="example placeholder avatar" width="150" height="150">
 				   </div>
-				   <div class="d-flex justify-content-center">
+<!-- 				   <div class="d-flex justify-content-center">
 				     <div class="btn btn-mdb-color btn-rounded float-left">
 				       <span>Add photo</span>
 				       <input type="file">
 				     </div>
-				   </div>
+				   </div> -->
 				 </div>
 				 </div>
 				 <div class="col-sm-8">
-				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/><br>
-				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
+				 		<label for=inputUsername>Username</label>
+				     	<form:input type="text" path="username" cssClass="form-control" id="inputUsername" placeholder="Enter your username"/><br>
+				     	
+				     	<label for="inputEmail">Email address</label>
+				     	<form:input type="email" path="email" cssClass="form-control" id="inputEmail" placeholder="Enter your e-mail"/>
 				     </div>
 				</div>
 				  	<div class="form-group row">
 					    <div class="col-sm-6">
-					      <form:input type="text" path="firstname" cssClass="form-control" id="staticEmail" placeholder="Firstname"/>
+					    	<label for=inputFirstname>Firstname</label>
+					      <form:input type="text" path="firstname" cssClass="form-control" id="inputFirstname" placeholder="Your firstname"/>
 					    </div>
 				     <div class="col-sm-6">
-				     	<form:input type="text" path="lastname" cssClass="form-control" id="staticEmail" placeholder="Lastname"/>
+				     <label for=inputLastname>Lastname</label>
+				     	<form:input type="text" path="lastname" cssClass="form-control" id="inputLastname" placeholder="Your lastname"/>
 				     </div>
 				     </div>
-				     <div class="form-group row">
-				     <div class="col-sm-6">
-				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
-				     </div>
-				     <div class="col-sm-6">
-				     	<form:input type="email" path="email" cssClass="form-control" id="staticEmail" placeholder="E-mail"/>
-				     </div>
-				  </div>
 				  <div class="form-group row">
 					    <div class="col-sm-6">
-					      <form:input type="password" path="password" cssClass="form-control" id="staticPassword" placeholder="Enter Password"/>
+					    <label for=inputPassword>Your password</label>
+					      <form:input type="password" path="password" cssClass="form-control" id="inputPassword" placeholder="Enter password"/>
 					    </div>
 				     <div class="col-sm-6">
-				     	<form:input type="password" path="password" cssClass="form-control" id="staticPassword" placeholder="Confirm Pasword"/>
+				     <label for=inputPassword>Your password again</label>
+				     	<form:input type="password" path="password" cssClass="form-control" id="staticPassword" placeholder="Confirm password"/>
 				     </div>
 				     </div>
-				     <div class="form-group row">
-				     <div class="col-sm-6">
-				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
-				     </div>
-				     <div class="col-sm-6">
-				     	<form:input type="email" path="email" cssClass="form-control" id="staticEmail" placeholder="E-mail"/>
-				     </div>
-				  </div>
 				  <div class="form-group row">
 				    <div class="col-sm-6">
-				      <form:input path="age" type="number" cssClass="form-control" id="staticEmail" placeholder="Age"/>
+				    <label for=inputAge>Age</label>
+				      <form:input path="age" type="number" cssClass="form-control" id="inputAge" placeholder="Enter your age"/>
 				    </div>
 				    <div class="col-sm-6">
-					    <form:select path="gender" id="inputState" cssClass="form-control">
-					        <option selected>Gender...</option>
+				    <label for=inputGender>Gender</label>
+					    <form:select path="gender" id="inputGender" cssClass="form-control">
+					        <option selected>Select gender...</option>
 					        <option>Male</option>
 					        <option>Female</option>
 						</form:select>
@@ -92,11 +87,13 @@
 				     </div>
 				     <div class="form-group row">
 				     <div class="col-sm-6">
-				     	<form:input type="text" path="telephone" cssClass="form-control" id="staticEmail" placeholder="Telephone"/>
+				     <label for=inputTelephone>Phone number</label>
+				     	<form:input type="text" path="telephone" cssClass="form-control" id="inputTelephone" placeholder="Enter a phone number"/>
 				     </div>
 				     <div class="col-sm-6">
-				     	<form:select path="type" id="inputState" cssClass="form-control">
-					        <option selected>Type...</option>
+				     <label for=inputType>User type</label>
+				     	<form:select path="type" id="inputType" cssClass="form-control">
+					        <option selected>Enter your type...</option>
 					        <option>User</option>
 					        <option>DBA</option>
 					        <option>Admin</option>
@@ -108,14 +105,15 @@
 				  </div>
 				  <div class="form-group row">
 				     <div class="col-sm-6">
-				     	<form:input type="date" path="birthdate" cssClass="form-control" id="staticBirthdate" placeholder="Birthdate"/>
+				     	<label for=inputBirthdate>Birth date</label>
+				     	<form:input type="date" path="birthdate" cssClass="form-control" id="inputBirthdate" placeholder="Birthdate"/>
 				     </div>
 				  </div>
+			  	      <div class="modal-footer">
+				        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+				        <button type="submit" class="btn btn-primary">Save</button>
+				      </div>
 				</form:form>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-	        <button type="button" class="btn btn-primary">Save</button>
 	      </div>
 	    </div>
 	  </div>
@@ -190,22 +188,26 @@
 							<th scope="col" width="120">User name</th>
 							<th scope="col" width="60">E-mail</th>
 							<th scope="col" width="80">Gender</th>
+							<th scope="col" width="30">Edit</th>
+							<th scope="col" width="30">Delete</th>
 						</tr>
 						<c:forEach items="${listUsers}" var="user">
 							<tr>
 								<td scope="row">${user.firstname}</td>
 								<td>${user.lastname}</td>
 								<td>${user.username}</td>
+								<td>${user.email}</td>
+								<td>${user.gender}</td>
 								<td>
 									<div class="col-xs-4 col-centered">
-										<a href="<c:url value='/edit/${user.id}' />">
+										<a href="<c:url value='/editUser/${user.id}' />">
 											<i class="glyphicon glyphicon-pencil"></i>
 										</a>
 									</div>
 								</td>
 								<td>
 									<div class="col-xs-4 col-centered">
-										<a href="<c:url value='/remove/${user.id}' />">
+										<a href="<c:url value='/remove/${user.id}' />"  data-toggle="modal" data-target="#exampleModalCenter">
 											<i class="glyphicon glyphicon-trash"></i>
 										</a>
 									</div>

@@ -1,4 +1,4 @@
-package com.khaled.crm;
+package com.khaled.crm.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
