@@ -65,13 +65,13 @@ public class UserDAOImpl implements UserDAO {
 		
 		List<User> usersList = session.createQuery(hql)
 				.setParameter("firstname", firstname)
-				.setParameter("lastname", lastname)
-				.setParameter("username", username)
-				.setParameter("email", email)
-				.setParameter("gender", gender)
-				.setParameter("age", age)
-				.setParameter("telephone", telephone)
-				.setParameter("type", type)
+				.setParameter("lastname", null)
+				.setParameter("username", null)
+				.setParameter("email", null)
+				.setParameter("gender", null)
+				.setParameter("age", null)
+				.setParameter("telephone", null)
+				.setParameter("type", null)
 				.list();
 		for (User user : usersList) {
 			logger.info("User List::" + user);

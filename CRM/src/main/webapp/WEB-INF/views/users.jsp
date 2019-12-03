@@ -139,13 +139,13 @@
 					      <form:input type="text" path="firstname" cssClass="form-control" id="staticEmail" placeholder="Firstname"/>
 					    </div>
 				     <div class="col-sm-3">
-				     	<form:input type="text" path="lastname" cssClass="form-control" id="staticEmail" placeholder="Lastname"/>
+				     	<form:input type="text" path="lastname"  value="" cssClass="form-control" id="staticEmail" placeholder="Lastname"/>
 				     </div>
 				     <div class="col-sm-3">
-				     	<form:input type="text" path="username" cssClass="form-control" id="staticEmail" placeholder="Username"/>
+				     	<form:input type="text" path="username"  value="" cssClass="form-control" id="staticEmail" placeholder="Username"/>
 				     </div>
 				     <div class="col-sm-3">
-				     	<form:input type="email" path="email" cssClass="form-control" id="staticEmail" placeholder="E-mail"/>
+				     	<form:input type="email" path="email" value="" cssClass="form-control" id="staticEmail" placeholder="E-mail"/>
 				     </div>
 				  </div>
 				  <div class="form-group row">
@@ -200,7 +200,10 @@
 								<td>${user.gender}</td>
 								<td>
 									<div class="col-xs-4 col-centered">
-										<a href="<c:url value='/editUser/${user.id}' />">
+										<%-- <a href="<c:url value='/editUser/${user.id}' />">
+											<i class="glyphicon glyphicon-pencil"></i>
+										</a> --%>
+										<a href="#exampleModalCenter" data-toggle="modal" data-target="#exampleModalCenter">
 											<i class="glyphicon glyphicon-pencil"></i>
 										</a>
 									</div>
