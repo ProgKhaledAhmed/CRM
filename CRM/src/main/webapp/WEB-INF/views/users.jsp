@@ -118,6 +118,30 @@
 	    </div>
 	  </div>
 	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="deleteConfirmationModalLabel">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      You are about to delete this item, Continue?
+	        <c:url var="deleteUser" value="/removeUser/${user.id}"></c:url>
+	       <form:form action="${deleteUser}" commandName="user" class="md-form overflow-auto">
+		      	<div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			        <button type="submit" class="btn btn-primary">Confirm</button>
+	      	</div>
+	      </form:form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 		<div class="panel panel-default">
 			<!-- Default panel contents -->
 			<div class="panel-heading clearfix">
@@ -210,7 +234,8 @@
 								</td>
 								<td>
 									<div class="col-xs-4 col-centered">
-										<a href="<c:url value='/remove/${user.id}' />"  data-toggle="modal" data-target="#exampleModalCenter">
+										<a href="#deleteConfirmation" data-toggle="modal" data-target="#deleteConfirmation">
+										<%-- <a href="<c:url value='/removeUser/${user.id}' />"> --%>
 											<i class="glyphicon glyphicon-trash"></i>
 										</a>
 									</div>
