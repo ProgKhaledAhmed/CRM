@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Handles requests for the application home page.
@@ -48,4 +49,9 @@ public class HomeController {
 		return "users";
 	}
 	
+	@RequestMapping("/testpopup")
+	public String popup(Locale locale, Model model){
+	    // your code here...
+	    return "testpopup";
+	}
 }

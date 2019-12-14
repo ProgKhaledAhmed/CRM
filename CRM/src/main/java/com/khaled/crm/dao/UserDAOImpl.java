@@ -1,7 +1,9 @@
 package com.khaled.crm.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -48,35 +50,36 @@ public class UserDAOImpl implements UserDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> searchUsers(String firstname, String lastname, String username, String email,
-			String gender, int age, String telephone, String type) {
+		String gender, int age, String telephone, String type) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String ageObj = age + "";
-		if(age <= 0) {
-			ageObj = null;
-		}
-		String hql ="FROM User WHERE (firstname=:firstname OR :firstname IS NULL)"
-				+ "AND (lastname=:lastname OR :lastname IS NULL) "
-				+ "AND (username=:username OR :username IS NULL) "
-				+ "AND (email=:email OR :email IS NULL) "
-				+ "AND (gender=:gender OR :gender IS NULL) "
-				+ "AND (age=:age OR :age IS NULL) "
-				+ "AND (telephone=:telephone OR :telephone IS NULL) "
-				+ "AND (type=:type OR :type IS NULL)";
 		
-		List<User> usersList = session.createQuery(hql)
-				.setParameter("firstname", firstname)
-				.setParameter("lastname", null)
-				.setParameter("username", null)
-				.setParameter("email", null)
-				.setParameter("gender", null)
-				.setParameter("age", null)
-				.setParameter("telephone", null)
-				.setParameter("type", null)
-				.list();
-		for (User user : usersList) {
-			logger.info("User List::" + user);
-		}
-		return usersList;
+		StringBuffer str = new StringBuffer("FROM User u WHERE 1=1 ");
+
+		if (!"".equals(firstname))
+			str.append(" AND u.firstname LIKE '%" + firstname + "%'  ");
+		if (!"".equals(lastname))
+			str.append(" AND u.lastname LIKE '%" + lastname + "%'  ");
+		if (!"".equals(firstname))
+			str.append(" AND u.firstname LIKE '%" + firstname + "%'  ");
+		if (!"".equals(username))
+			str.append(" AND u.username LIKE '%" + username + "%'  ");
+		if (!"".equals(email))
+			str.append(" AND u.email LIKE '%" + email + "%'  ");
+		if (!"".equals(gender) && !"Gender".equals(gender))
+			str.append(" AND u.gender LIKE '%" + gender + "%'  ");
+		if (!"".equals(telephone))
+			str.append(" AND u.telephone LIKE '%" + telephone + "%'  ");
+		if (!"".equals(telephone))
+			str.append(" AND u.telephone LIKE '%" + telephone + "%'  ");
+		if (!"".equals(type) && !"Type".equals(type))
+			str.append(" AND u.type LIKE '%" + type + "%'  ");
+		if (!"".equals(type))
+
+		str.append(" ORDER BY u.birthdate");
+
+		Query createQuery = session.createQuery(str.toString());
+		List<User> users = createQuery.list();
+		return users;
 	}
 
 	@SuppressWarnings("deprecation")

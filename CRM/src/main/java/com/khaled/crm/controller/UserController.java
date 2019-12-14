@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.khaled.crm.model.User;
 import com.khaled.crm.service.UserService;
@@ -66,10 +67,13 @@ public class UserController {
 		return "redirect:/users";
 	}
 
-	@RequestMapping("/editUser/{id}")
-	public String editUser(@PathVariable("id") int id, Model model) {
+	@SuppressWarnings("unused")
+	@RequestMapping(value = "/editUser/{id}", method = RequestMethod.GET)
+	public ModelAndView editUser(@PathVariable("id") int id, Model model) {
 		model.addAttribute("user", this.userService.getUserById(id));
 		model.addAttribute("listUsers", this.userService.listUsers());
-		return "users";
+		User currentUser = this.userService.getUserById(id);
+		ModelAndView modelAndView = new ModelAndView("users", "currentUser", currentUser);
+		return modelAndView;
 	}
 }

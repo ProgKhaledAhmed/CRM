@@ -44,12 +44,19 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public List<User> searchUsers(String firstname, String lastname, String username, String email, String gender,
 			int age, String telephone, String type) {
-		if(gender.equalsIgnoreCase("Gender...")) {
+		String ageValue = age + "";
+		System.err.println("------------ Gender: " + gender + " ---------------");
+		System.err.println("------------ Type: " + type + " ---------------");
+		if(gender.equals("Gender...")) {
 			gender = null;
 		}
 		
-		if(type.equalsIgnoreCase("Type...") || type.equalsIgnoreCase("...")) {
+		if(type.equals("Type...") || type.equals("...")) {
 			type = null;
+		}
+		
+		if(age <= 0) {
+			ageValue = null;
 		}
 		return this.userDAO.searchUsers(firstname, lastname, username, email, gender, age, telephone, type);
 	}

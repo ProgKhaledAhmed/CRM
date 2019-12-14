@@ -9,11 +9,20 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="/js/users.js"></script>
 		<script type="text/javascript">
-			$(document).ready(
-			    /* function () 
+			 $(document).ready(
+					 /*    function () 
 			    {
+			    	$.ajax({
+			    		  url:"downloadFIReport.do",
+			    		  type:"post",
+			    		  dataType:"json",
+			    		  data:{id:$("#id").val(),name:$("#name").val()},
+			    		  success:function(){}
+			    	});
 				    $('table tbody tr #editBtnId').on('click', function () {
+				    	$("#editModalDialog .modal-title").html("Edit Khaled")
 				        $("#firstname").val($(this).closest('tr').children()[0].textContent);
 				        $("#lastname").val($(this).closest('tr').children()[1].textContent);
 				        $("#username").val($(this).closest('tr').children()[2].textContent);
@@ -27,26 +36,24 @@
 				        $("#firstname").val($(this).closest('tr').children()[0].textContent);
 				        $("#editModalDialog").modal("show");
 					});
-				} */
-				
+				    
+				    $("#editBtnId").click( function () {
+				    	
+				    });
+				}*/ 
+
 				function(){
 				    $('table tbody tr #editBtnId').on('click', function (e) {
-				        var userId = $(e.relatedTarget).data('${user.id}');
+				        var userId = $(e.relatedTarget).data('#user_id');
 				        $.ajax({
 				            type : "GET",
 				            url : "/editUser/"+ userId,
 				            contentType : 'application/json',
 				            success : function(data) {
-				                if (data.status==200){
-				                    //I have to pass to modal the data.body
-				                	alert('--- success ---');
-				                } else {
-				                    //show error
-				                	alert('--- failure ---');
-				                }
+				                alert('--- success ---' + data);
 				            },
 				            error : function(data) {
-				                
+				            	//alert('--- failure ---' + data);
 				            }
 				        });
 				        $("#editModalDialog").modal("show");
@@ -73,6 +80,7 @@
 		  <div id="user_div" class="modal-body"></div>
 		  <!--  class="modal-body pre-scrollable" -->
 		    <form th:action="@{/editUser}" th:method="post" class="md-form overflow-auto">
+		    <input type="text" name="user_key" class="hidden">
 				<div class="form-group row">
 					<div class="col-sm-4">
 						<div class="file-field">
@@ -84,7 +92,7 @@
 					</div>
 					<div class="col-sm-8">
 						<!-----------  Username ------------->
-						<label for=username>Username</label>
+						<label for=username>${currentUser.username}</label>
 						<input type="text" name="username" class="form-control" id="username" placeholder="Enter your username"/><br>
 						<!-----------  Email address ------------->
 						<label for="email">Email address</label>
@@ -327,11 +335,11 @@
 				  </div>
 				  <div class="form-group row">
 				    <div class="col-sm-3">
-				      <form:input path="age" type="number" cssClass="form-control" id="staticEmail" placeholder="Age"/>
+				      <form:input path="age" type="number" value="21" cssClass="form-control" id="staticEmail" placeholder="Age"/>
 				    </div>
 				    <div class="col-sm-3">
 					    <form:select path="gender" id="inputState" cssClass="form-control">
-					        <option selected>Gender...</option>
+					        <option selected>Gender</option>
 					        <option>Male</option>
 					        <option>Female</option>
 						</form:select>
@@ -341,7 +349,7 @@
 				     </div>
 				     <div class="col-sm-3">
 				     	<form:select path="type" id="inputState" cssClass="form-control">
-					        <option selected>Type...</option>
+					        <option selected>Type</option>
 					        <option>User</option>
 					        <option>DBA</option>
 					        <option>Admin</option>
@@ -370,6 +378,7 @@
 						</tr>
 						<c:forEach items="${listUsers}" var="user">
 							<tr>
+								<input type="hidden" id="user_id" name="user_id" class="hidden" value="${user.id}">
 								<td scope="row">${user.firstname}</td>
 								<td>${user.lastname}</td>
 								<td>${user.username}</td>
